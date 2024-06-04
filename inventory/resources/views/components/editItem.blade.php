@@ -9,22 +9,28 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h2 class="mb-4">Add New Item</h2>
+
+        <h2 class="mb-4">Update Item</h2>
+        <div class="row mb-3">
+            <div class="col text-right">
+                <a href="{{ route('index') }}" class="btn btn-outline-info mt-3">Back to List</a>
+            </div>
+          </div> 
         <form action="{{route('editItem', $task->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">Item Name:</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Item Name">
+                <input type="text" class="form-control" id="name" name="name" value="{{$task->name}}" placeholder="Enter Item Name">
             </div>
             <div class="form-group">
                 <label for="description">Item Details:</label>
-                <textarea class="form-control" id="description" name="description" placeholder="Enter Item Details"></textarea>
+                <textarea class="form-control" id="description" name="description" placeholder="Enter Item Details">{{$task->description}}</textarea>
             </div>
             <div class="form-group">
                 <label for="color">Item Color:</label>
-                <input type="text" class="form-control" id="color" name="color" placeholder="Enter Item Color">
+                <input type="text" class="form-control" id="color" name="color" value="{{$task->color}}" placeholder="Enter Item Color">
             </div>
-            <button type="submit" class="btn btn-primary">Add Item</button>
+            <button type="submit" class="btn btn-outline-warning">Update Item</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

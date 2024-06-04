@@ -40,6 +40,6 @@ class ItemController extends Controller
     public function view($id)
     {
         $task = Items::findOrFail($id);
-        return view('viewItem')->with('task', $task);
+        return view('components.viewItem',['task'=>$task]);
     }
 }

@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Item Details</h1>
+        <h1 class="display-4 mb-4">Item Details</h1>
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Name: {{ $task->name }}</h5>
                 <p class="card-text">Description: {{ $task->description }}</p>
                 <p class="card-text">Color: {{ $task->color }}</p>
-                <a href="{{ route('index') }}" class="btn btn-warning">Back to List</a>
+                <a href="{{ route('index') }}" class="btn btn-outline-info mt-3">Back to List</a>
             </div>
         </div>
     </div>
