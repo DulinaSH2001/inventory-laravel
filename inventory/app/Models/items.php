@@ -8,9 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class items extends Model
 {
     use HasFactory;
-    protected $filelable = [
-        'i_name',
-        'i_details',
-        'i_color'
-    ];
+    protected $fillable = ['name', 'description', 'color'];
 }

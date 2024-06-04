@@ -8,36 +8,41 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-    
+  <div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col text-right">
+        <a href="{{ route('addItem') }}" class="btn btn-primary">Add Item</a>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item Name</th>
+         
+          
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($tasks as $item => $task)
+        <tr>
+          <th scope="row">{{ ++$item }}</th>
+          <td>{{ $task->name }}</td>
+        
+          <td>
+            <a href="{{ route('updateItem', $task->id) }}" class="btn btn-primary">Edit</a>
+            <a href="{{ route('deleteItem', $task->id) }}" class="btn btn-danger">Delete</a>
+            <a href="{{ route('viewItem', $task->id) }}" class="btn btn-warning">View</a>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaA5jF5OD5s58T5F3e6dyD7z7" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-smHYkd98j9rZzE2K5i5t2kXki3o7r2HpGO6sp5eFxBZVxM3CqGujnMTdHdjfXgGK" crossorigin="anonymous"></script>
 </body>
 </html>

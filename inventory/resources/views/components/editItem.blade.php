@@ -10,7 +10,7 @@
 <body>
     <div class="container mt-5">
         <h2 class="mb-4">Add New Item</h2>
-        <form action="{{route('insertItem')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('editItem', $task->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">Item Name:</label>

@@ -1,17 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ItemController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/',[UserController::class,'index'])->name('index');
+Route::get('/',[ItemController::class,'index'])->name('index');
+Route::get('/add',[ItemController::class,'add'])->name('addItem');
+Route::get('/{id}/delete',[ItemController::class,'delete'])->name('deleteItem');
+Route::get('/{id}/update',[ItemController::class,'update'])->name('updateItem');
+Route::get('/{id}/details',[ItemController::class,'details'])->name('itemDetails');
+Route::post('/insert',[ItemController::class,'insert'])->name('insertItem');
+Route::post('/edit/{id}', [ItemController::class, 'edit'])->name('editItem');
+Route::get('/view/{id}', [ItemController::class, 'view'])->name('viewItem');
